@@ -2,17 +2,19 @@ const {model, Schema} =  require('mongoose');
 
 
 const studentAttandanceSchema = new Schema({
-    createdAt: Date,
+   
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
+        required: true
     },
-    AdminAttandance :{
+    adminAttendance :{
         type: Schema.Types.ObjectId,
-        ref: AdminAttandance,
+        ref: 'AdminAttendance',
+        required: true
     }
-})
+},{timestamps: true})
 
-const StudentAttandance = model('AdminAttandance', studentAttandanceSchema);
+const StudentAttandance = model('StudentAttandance', studentAttandanceSchema);
 
 module.exports = StudentAttandance;
